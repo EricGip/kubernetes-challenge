@@ -4,9 +4,7 @@ Minikube - hello
 
 Fork a repository, deploy application to minikube 
 
-----
-
-# Steps
+## Steps
 
 1. Learn about minikube 
 
