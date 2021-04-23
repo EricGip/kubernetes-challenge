@@ -28,6 +28,10 @@ Fork a repository, deploy application to minikube
 
 An error I ran into here was `ImagePullBackOff` on my pod statuses. Please fix this by using VIM and changing the k8's configuration with `ImagePullPolicy=Always` to `ImagePullPolicy=Never`. 
 
+<a href="https://imgflip.com/gif/56sf50"/><img src="https://imgflip.com/embed/56sf50"/>
+					    
+					    <div style="width:260px;max-width:100%;"><div style="height:0;padding-bottom:29.62%;position:relative;"><iframe width="260" height="77" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameBorder="0" src="https://imgflip.com/embed/56sf50"></iframe></div><p><a href="https://imgflip.com/gif/56sf50">via Imgflip</a></p></div>
+
 ## 1. Minikube overview
 
 Kubernetes is generally going to have master and worker nodes. 
