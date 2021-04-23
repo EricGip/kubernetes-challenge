@@ -7,10 +7,10 @@ echo
 echo
 
 while true; do
-    read -p "This script requires HyperKit, Docker, and MiniKube, do you wish to install these programs? (Just "Y" if already installed.) y/n " yn
+    read -p "This script requires HyperKit, Docker, and MiniKube, do you wish to install these programs? (Just "N" if already installed.) y/n " yn
     case $yn in
         [Yy]* ) brew install hyperkit minikube docker; break;;
-        [Nn]* ) exit;;
+        [Nn]* ) break;;
         * ) echo "Please answer enter y or n";;
     esac
 done
@@ -57,7 +57,7 @@ while true; do
     case $yn in
         [Yy]* ) kubectl edit deployment sadachall2; break;;
         [Nn]* ) break;;
-        * ) echo "Please answer yes or no.";;
+        * ) echo "Please enter y or n";;
     esac
 done
 
