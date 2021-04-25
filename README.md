@@ -40,7 +40,7 @@ If you want to test something on your local machine, you might not have enough r
 
 Minikube will run Master and Node processes on ONE Machine, and host both master processes and worker processes node. 
 
-It does this with a hypervisor, such as virtual box, 
+It does this with a hypervisor, such as virtual box or HyperKit in our case.
 
 basically creates a virtual box on your laptop, and node runs in that virtual box. 1 node k8's cluster. Used for testing purposes. 
 
