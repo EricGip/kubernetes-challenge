@@ -86,11 +86,39 @@ IMPORTANT NOTE: Since we're using the image in minikube and not our local system
 
 We have minikube running, but we still need to deploy a `pod`, which is a group of one or more containers. In this case, its going to be our `sadachallenge2` image we built. 
 
-1. Ensure minikube is still running, `kubectl create deployment sadachall4 --image=sadachallenge2`, replace sadachall2 to any name you want and image=yourContainerName. (View resources for help)
+1. Ensure minikube is still running and choose either option. 
+	* 1.1`kubectl create deployment sadachall4 --image=sadachallenge2`, replace sadachall2 to any name you want and image=yourContainerName. 
+	* 1.2 Configure a `sadachal-deployment.yaml` and `kubectl apply -f sadachal-deployment.yaml` (View resources for help)
+
+Barebones example for a deployment.yaml
+
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sadachall4
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      bb: web
+  template:
+    metadata:
+      labels:
+        bb: web
+    spec:
+      containers:
+      - name: sadachall4
+        image: sadachallenge2
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 4000
+```
 
 2. View deployments/pods with `kubectl get deployments` or `kubectl get pods`
 
-2.5 An error I ran into here was `ImagePullBackOff` on my pod statuses. We can fix this by changing the k8's configuration with `kubectl edit deployment sadachall2`
+2.5 An error I ran into here was `ImagePullBackOff` on my pod statuses. We can fix this by changing the k8's configuration with `kubectl edit deployment sadachall2` or configuring the specific settings we want inside a YAML file and letting k8's run that. 
    * ~~NOTE: In VSC, this may require you to use VIM. we want to change `ImagePullPolicy` from `Always` to `Never`. `ImagePullPolicy=Never`.~~
    * Fixed the bug above with the deployment.yaml file. 
    * Save and exit, the pod should automatically restart and should be online with `get deployments` or `get pods`
@@ -122,6 +150,9 @@ https://docs.docker.com/get-started/02_our_app/
 Part 4:
 
 https://kubernetes.io/docs/tutorials/hello-minikube/
+
+yaml file setup
+https://docs.docker.com/get-started/kube-deploy/
 
 ImagePullBackOff issue: 
 https://stackoverflow.com/questions/40144138/pull-a-local-image-to-run-a-pod-in-kubernetes
