@@ -86,7 +86,7 @@ IMPORTANT NOTE: Since we're using the image in minikube and not our local system
 
 We have minikube running, but we still need to deploy a `pod`, which is a group of one or more containers. In this case, its going to be our `sadachallenge2` image we built. 
 
-1. Ensure minikube is still running, `kubectl create deployment sadachall2 --image=sadachallenge2`, replace sadachall2 to any name you want and image=yourContainerName. (View resources for help)
+1. Ensure minikube is still running, `kubectl create deployment sadachall4 --image=sadachallenge2`, replace sadachall2 to any name you want and image=yourContainerName. (View resources for help)
 
 2. View deployments/pods with `kubectl get deployments` or `kubectl get pods`
 
@@ -96,7 +96,8 @@ We have minikube running, but we still need to deploy a `pod`, which is a group 
    * Save and exit, the pod should automatically restart and should be online with `get deployments` or `get pods`
 
 3. Next, we need to create a service to expose the Pod and allow outside users to access it.
-	* `kubectl expose deployment sadachall2 --type=LoadBalancer --port=4000`
+	* `kubectl expose deployment sadachall4 --type=LoadBalancer --port=4000`
+		* Note: We can choose to create a sadachal-services.yaml file, but this just makes it a little easier to understand for the new user and hoping it's not overwhelming.  
 		* Match port with `Dockerfile` configuration.
 
 4. Ensure everything is set up with `kubectl get services`
