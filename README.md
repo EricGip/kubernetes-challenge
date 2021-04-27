@@ -14,7 +14,9 @@ The reason I chose this project is because I'm really interested in cloud comput
 
 3. `/path/to/run.sh` or just `./run.sh`
 
-An error I ran into here was `ImagePullBackOff` on my pod statuses. Please fix this by using VIM and changing the k8's configuration with `ImagePullPolicy=Always` to `ImagePullPolicy=Never` when prompted on screen.
+~~An error I ran into here was `ImagePullBackOff` on my pod statuses. Please fix this by using VIM and changing the k8's configuration with `ImagePullPolicy=Always` to `ImagePullPolicy=Never` when prompted on screen.~~
+
+The whole point of DevOps is CI/CD and automation. I first learned that there are KubeCTL commands to deploy, but then found out that you can auto deploy based on configurations with a YAML file. So I removed the manual steps requiring VIM above and the app should auto deploy now. 
 
 ![56sf50](https://user-images.githubusercontent.com/42220408/115805030-fd012800-a398-11eb-821b-76856ac01fb6.gif)
 
