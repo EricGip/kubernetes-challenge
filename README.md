@@ -91,7 +91,8 @@ We have minikube running, but we still need to deploy a `pod`, which is a group 
 2. View deployments/pods with `kubectl get deployments` or `kubectl get pods`
 
 2.5 An error I ran into here was `ImagePullBackOff` on my pod statuses. We can fix this by changing the k8's configuration with `kubectl edit deployment sadachall2`
-   * NOTE: In VSC, this may require you to use VIM. we want to change `ImagePullPolicy` from `Always` to `Never`. `ImagePullPolicy=Never`. 
+   * ~~NOTE: In VSC, this may require you to use VIM. we want to change `ImagePullPolicy` from `Always` to `Never`. `ImagePullPolicy=Never`.~~
+   * Fixed the bug above with the deployment.yaml file. 
    * Save and exit, the pod should automatically restart and should be online with `get deployments` or `get pods`
 
 3. Next, we need to create a service to expose the Pod and allow outside users to access it.
