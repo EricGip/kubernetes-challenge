@@ -76,7 +76,7 @@ Now, we're going to build the container image with `Docker`.
 
 Normally, we would have to normally configure the `Dockerfile` ourselves, but the repo we forked has already configured it for us. 
 
-IMPORTANT NOTE: Since we're using the image in minikube and not our local system, we need to set the environment variable. `eval $(minikube docker-env)`
+**IMPORTANT NOTE: Since we're using the image in minikube and not our local system, we need to set the environment variable. `eval $(minikube docker-env)`**
 
 4. `docker build -t sadachallenge2 .` View the link in resources for more information on the commands. 
 
@@ -118,7 +118,7 @@ spec:
 
 2. View deployments/pods with `kubectl get deployments` or `kubectl get pods`
 
-2.5 An error I ran into here was `ImagePullBackOff` on my pod statuses. We can fix this by changing the k8's configuration with `kubectl edit deployment sadachall2` or configuring the specific settings we want inside a YAML file and letting k8's run that. 
+2.5 An error I ran into here was `ImagePullBackOff` on my pod statuses due to . We can fix this by changing the k8's configuration with `kubectl edit deployment sadachall2` or **configuring the specific settings we want inside a YAML file and letting k8's run that.** 
    * ~~NOTE: In VSC, this may require you to use VIM. we want to change `ImagePullPolicy` from `Always` to `Never`. `ImagePullPolicy=Never`.~~
    * Fixed the bug above with the deployment.yaml file. 
    * Save and exit, the pod should automatically restart and should be online with `get deployments` or `get pods`
@@ -130,7 +130,7 @@ spec:
 
 4. Ensure everything is set up with `kubectl get services`
 
-5. Launch the app through `minikube service sadachall2`
+5. Launch the app through `minikube service sadachall4`
 
 
 # Resources
