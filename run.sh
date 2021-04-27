@@ -37,6 +37,7 @@ eval $(minikube docker-env)
 
 echo
 echo "Building the docker image"
+echo "Building the docker image"
 echo
 docker build -t sadachallenge2 .
 echo
@@ -46,37 +47,35 @@ echo "You should see an image called sadachallenge2"
 echo
 docker images -a
 
-kubectl create deployment sadachall2 --image=sadachallenge2
+echo "Now, we're going to deploy our docker container inside kubernetes automated through our YAML file."
+echo "Now, we're going to deploy our docker container inside kubernetes automated through our YAML file."
+kubectl apply -f sadachal-deployment.yaml
 echo
 echo
 
-echo "I couldn't figure out how to automate this, please change ImagePullPolicy=Always to ImagePullPolicy=Never in order to avoid a bug you can view in the ReadMe."
-echo
-while true; do
-    read -p "Are you ready to use VIM editor? Please change ImagePullPolicy=Always to ImagePullPolicy=Never in order to avoid a bug you can view in the ReadMe. If you aren't comfortable with VIM, you may enter N and try to see if it doesn't fail. y/n " yn
-    case $yn in
-        [Yy]* ) kubectl edit deployment sadachall2; break;;
-        [Nn]* ) break;;
-        * ) echo "Please enter y or n";;
-    esac
-done
-
-echo "We should see sadachall2 running"
+echo "We should see sadachall4 running for deployments"
 echo
 kubectl get deployments
+echo
+echo
 
-echo "We should see sadachall2 running"
+echo "We should see sadachall4 running in pods"
 echo
 kubectl get pods
+echo
+echo
 
 echo "Next, creating a service to expose the Pod to allow outside users to view."
 echo
-kubectl expose deployment sadachall2 --type=LoadBalancer --port=4000
+kubectl expose deployment sadachall4 --type=LoadBalancer --name=sadachall4
 
 echo "Viewing our services to ensure everything is running smoothly"
 echo
 kubectl get services
+echo
+echo
+
 
 echo "Finally, launching our app and seeing our server.js"
 echo
-minikube service sadachall2
+minikube service sadachall4
