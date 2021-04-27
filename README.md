@@ -4,9 +4,21 @@ Minikube - hello
 
 Fork a repository, deploy application to minikube 
 
-----
+The reason I chose this project is because I'm really interested in cloud computing / scalability, haven't had a usecase for Kubernetes/Minikube so I haven't worked with them yet. I was really happy to take a break from leetcode and learn a technology I've been wanting to learn. 
 
-# Steps
+# How to use (macOS)
+
+1. Enter terminal, either move to directory or find relative path to file. 
+
+2. Give permission to script `chmod +x /path/to/run.sh`
+
+3. `/path/to/run.sh` or just `./run.sh`
+
+An error I ran into here was `ImagePullBackOff` on my pod statuses. Please fix this by using VIM and changing the k8's configuration with `ImagePullPolicy=Always` to `ImagePullPolicy=Never` when prompted on screen.
+
+![56sf50](https://user-images.githubusercontent.com/42220408/115805030-fd012800-a398-11eb-821b-76856ac01fb6.gif)
+
+## Steps
 
 1. Learn about minikube 
 
@@ -20,16 +32,6 @@ Fork a repository, deploy application to minikube
 
 6. Send URL to your forked repository
 
-# How to use (macOS)
-
-1. Enter terminal, either move to directory or find relative path to file. 
-
-2. Give permission to script `chmod +x /path/to/run.sh`
-
-3. `/path/to/run.sh` or just `./run.sh`
-
-An error I ran into here was `ImagePullBackOff` on my pod statuses. Please fix this by using VIM and changing the k8's configuration with `ImagePullPolicy=Always` to `ImagePullPolicy=Never`. 
-
 ## 1. Minikube overview
 
 Kubernetes is generally going to have master and worker nodes. 
@@ -38,7 +40,7 @@ If you want to test something on your local machine, you might not have enough r
 
 Minikube will run Master and Node processes on ONE Machine, and host both master processes and worker processes node. 
 
-It does this with a hypervisor, such as virtual box, 
+It does this with a hypervisor, such as virtual box or HyperKit in our case.
 
 basically creates a virtual box on your laptop, and node runs in that virtual box. 1 node k8's cluster. Used for testing purposes. 
 
