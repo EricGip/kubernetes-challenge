@@ -4,8 +4,6 @@ Minikube - hello
 
 Fork a repository, deploy application to minikube 
 
-The reason I chose this project is because I'm really interested in cloud computing / scalability, haven't had a usecase for Kubernetes/Minikube so I haven't worked with them yet. I was really happy to take a break from leetcode and learn a technology I've been wanting to learn. 
-
 # How to use (macOS)
 
 1. Enter terminal, either move to directory or find relative path to file. 
